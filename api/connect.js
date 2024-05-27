@@ -7,10 +7,3 @@ export const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
 });
-
-// export const db = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "m147596322",
-//   database: "social",
-// });
