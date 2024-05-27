@@ -1,0 +1,164 @@
+@import "../../style.scss";
+
+.profile {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+    width: 100%;
+
+    .images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding-left: 20px;
+
+      @include mobile {
+        padding-left: 0;
+      }
+
+      .cover {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+
+        @include mobile {
+          height: 250px;
+        }
+      }
+
+      .profilePic {
+        position: absolute;
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        object-fit: cover;
+        top: 200px;
+        border: 5px solid themed("bgSoft");
+        background-color: white;
+
+        @include mobile {
+          top: 16vh;
+        }
+      }
+    }
+
+    .profileContainer {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 700px;
+      padding: 20px 20px;
+
+      @include mobile {
+        padding: 10px;
+      }
+
+      @include tablet {
+        padding: 20px;
+      }
+
+      .profileInfo {
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        background-color: themed("bg");
+        color: themed("textColor");
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        padding: 50px 20px;
+        width: 100%;
+        height: 280px;
+        margin-bottom: 20px;
+
+        @include mobile {
+          flex-direction: column;
+          height: 30vh;
+          padding: 20px;
+          margin-top: 10vh;
+        }
+
+        .left {
+          flex: 1;
+          display: flex;
+          gap: 10px;
+          color: themed("textColorSoft");
+          flex-wrap: wrap;
+
+          @include tablet {
+            flex-wrap: wrap;
+            gap: 15px;
+          }
+        }
+
+        .center {
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+
+          span {
+            font-weight: 600;
+            font-size: 23px;
+          }
+
+          .info {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+
+            .item {
+              display: flex;
+              align-items: center;
+              color: themed("textColorSoft");
+              gap: 5px;
+
+              span {
+                font-weight: normal;
+                font-size: 14px;
+              }
+            }
+          }
+
+          .buttons {
+            button {
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              background-color: #5271ff;
+              color: white;
+              cursor: pointer;
+
+              &.update {
+                background-color: white;
+                color: #5271ff;
+                border: 1px solid #5271ff;
+              }
+
+              &.follow {
+                background-color: #5271ff;
+                color: white;
+              }
+
+              &.unfollow {
+                background-color: white;
+                color: #5271ff;
+                border: 1px solid #5271ff;
+              }
+            }
+          }
+        }
+        .right {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}

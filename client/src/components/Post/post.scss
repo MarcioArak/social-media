@@ -1,0 +1,163 @@
+@import "../../style.scss";
+
+.post {
+  @include themify($themes) {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    background-color: themed("bg");
+    color: themed("textColor");
+    text-align: left;
+
+    .container {
+      padding: 20px;
+
+      .user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .userInfo {
+          display: flex;
+          gap: 20px;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .details {
+            display: flex;
+            flex-direction: column;
+
+            .name {
+              font-weight: 600;
+            }
+            .time {
+              font-size: 12px;
+            }
+          }
+        }
+        .editButton {
+          background-color: themed("bg");
+          color: themed("textColor");
+          border: none;
+          cursor: pointer;
+        }
+
+        // Disables the arrow from dropdown
+        .dropdown-toggle::after {
+          display: none !important;
+        }
+
+        .dropdownMenu {
+          background-color: themed("bg");
+          color: themed("textColor");
+          border-color: themed("textColor");
+
+          // TO DO
+          @include mobile {
+            // background-color: black;
+            position: absolute;
+            right: 0;
+          }
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 15px;
+          }
+          .item:hover {
+            background-color: lightgrey;
+          }
+        }
+      }
+
+      .content {
+        margin: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .editPost {
+          display: flex;
+          align-self: flex-start;
+          padding-left: 10px;
+          gap: 15px;
+
+          @include tablet {
+            padding-left: 0;
+            padding-right: 10px;
+            gap: 5px;
+          }
+
+          @include mobile {
+            padding-left: 0;
+            padding-right: 10px;
+            gap: 5px;
+          }
+
+          textarea {
+            width: 500px;
+
+            @include tablet {
+              width: 55vw;
+            }
+
+            @include mobile {
+              width: 72vw;
+            }
+          }
+
+          button {
+            align-self: flex-end;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            background-color: #5271ff;
+          }
+        }
+
+        p {
+          align-self: flex-start;
+        }
+
+        img {
+          width: 70%;
+          max-height: 70%;
+          object-fit: fill;
+          margin-top: 10px;
+        }
+      }
+
+      .info {
+        display: flex;
+        gap: 20px;
+
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 5px;
+          cursor: pointer;
+          font-size: 14px;
+        }
+
+        .item:hover {
+          background-color: lightgrey;
+          color: #444;
+        }
+        .item:active {
+          background-color: grey;
+          color: white;
+        }
+      }
+    }
+  }
+}

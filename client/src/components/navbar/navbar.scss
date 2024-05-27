@@ -1,0 +1,150 @@
+@import "./../../style.scss";
+
+.navbar {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 60px;
+    border-bottom: 1px solid themed("border");
+    position: sticky;
+    top: 0;
+    background-color: themed("bg");
+    color: themed("textColor");
+    z-index: 999; // covers containers when scrolling
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+
+      span {
+        font-weight: bold;
+        font-size: 20px;
+        color: themed("logo");
+
+        @include mobile {
+          font-size: 15px;
+        }
+      }
+
+      .item {
+        padding: 4px;
+      }
+
+      .item:hover {
+        background-color: lightgrey;
+        color: #444;
+      }
+
+      .item:active {
+        background-color: grey;
+        color: white;
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid themed("border");
+        border-radius: 5px;
+        padding: 5px;
+
+        input {
+          border: none;
+          width: 400px;
+          background-color: transparent;
+          color: themed("textColor");
+
+          @include mobile {
+            display: none;
+          }
+
+          @include tablet {
+            width: 200px;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+
+      @include mobile {
+        display: none;
+      }
+
+      .item {
+        padding: 4px;
+      }
+
+      .item:hover {
+        background-color: lightgrey;
+        color: #444;
+      }
+
+      .item:active {
+        background-color: grey;
+        color: white;
+      }
+
+      .profileButton {
+        padding: 0px;
+        background-color: themed("bg");
+        color: themed("textColor");
+        border: none;
+        cursor: pointer;
+      }
+
+      .profileButton:hover {
+        background-color: lightgrey;
+        color: #444;
+      }
+
+      .profileButton:active {
+        background-color: grey;
+        color: white;
+      }
+
+      // Disables the arrow from dropdown
+      .dropdown-toggle::after {
+        display: none !important;
+      }
+
+      .dropdownMenu {
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 15px;
+        }
+        .item:hover {
+          background-color: lightgrey;
+        }
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-weight: 600;
+
+        @include tablet {
+          display: none;
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

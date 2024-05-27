@@ -1,0 +1,114 @@
+@import "./../../style.scss";
+
+.leftBar {
+  @include themify($themes) {
+    flex: 2;
+    position: sticky;
+    top: 71px;
+    height: calc(100vh - 71px);
+    overflow: scroll;
+    width: 300px;
+    min-width: 180px;
+    background-color: themed("bg");
+    color: themed("textColor");
+
+    @include mobile {
+      display: none;
+    }
+
+    // Hide scrollbar
+    scrollbar-width: none; // Firefox only
+
+    // Chrome, Safari, IOS
+    &::-webkit-scrollbar {
+      display: 0;
+    }
+
+    hr {
+      margin: 20px 0px;
+      border: none;
+      height: 1px;
+      background-color: themed("border");
+    }
+
+    .container {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        span {
+          text-align: left;
+          font-size: 12px;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 4px;
+
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .user:hover {
+          background-color: lightgrey;
+
+          span {
+            color: #444;
+          }
+        }
+        .user:active {
+          background-color: grey;
+
+          span {
+            color: white;
+          }
+        }
+
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 4px;
+
+          img {
+            width: 30px;
+          }
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .item:hover {
+          background-color: lightgrey;
+
+          span {
+            color: #444;
+          }
+        }
+        .item:active {
+          background-color: grey;
+
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
