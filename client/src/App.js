@@ -43,7 +43,7 @@ function App() {
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/meso-social/login" />;
+      return <Navigate to="/social-media/login" />;
     }
 
     return children;
@@ -51,7 +51,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/meso-social/",
+      path: "/social-media/",
       element: (
         <ProtectedRoute>
           <Layout />
@@ -69,11 +69,11 @@ function App() {
       ],
     },
     {
-      path: "/meso-social/login",
+      path: "social-media/login",
       element: <Login />,
     },
     {
-      path: "/meso-social/register",
+      path: "/social-media/register",
       element: <Register />,
     },
   ]);
