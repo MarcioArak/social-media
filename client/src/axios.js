@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const makeRequest = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}/api/`,
+  baseURL: `social-media-production-5b7b.up.railway.app/api/`,
   withCredentials: true,
 });
